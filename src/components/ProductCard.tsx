@@ -11,8 +11,12 @@ const badgeColors: Record<string, string> = {
   'Best Value': 'bg-emerald-100 text-emerald-700 border-emerald-200',
   'Cheapest Pick': 'bg-sky-100 text-sky-700 border-sky-200',
   "Editor's Choice": 'bg-amber-100 text-amber-700 border-amber-200',
+  'Editor’s Choice': 'bg-amber-100 text-amber-700 border-amber-200',
   'Top Rated': 'bg-rose-100 text-rose-700 border-rose-200',
   'Best Battery': 'bg-violet-100 text-violet-700 border-violet-200',
+  'Most Powerful': 'bg-orange-100 text-orange-700 border-orange-200',
+  'Best Folding': 'bg-indigo-100 text-indigo-700 border-indigo-200',
+  'Best for Couples': 'bg-pink-100 text-pink-700 border-pink-200',
 };
 
 function StarRating({ rating }: { rating: number }) {
@@ -46,12 +50,17 @@ export default function ProductCard({ product, rank }: ProductCardProps) {
         <div className="flex flex-col sm:flex-row gap-5">
           {/* Rank + Image */}
           <div className="flex flex-col items-center gap-3 shrink-0">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-              rank === 1 ? 'bg-amber-400 text-white' :
-              rank === 2 ? 'bg-gray-300 text-gray-700' :
-              rank === 3 ? 'bg-amber-600/70 text-white' :
-              'bg-gray-100 text-gray-500'
-            }`}>
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                rank === 1
+                  ? 'bg-amber-400 text-white'
+                  : rank === 2
+                  ? 'bg-gray-300 text-gray-700'
+                  : rank === 3
+                  ? 'bg-amber-600/70 text-white'
+                  : 'bg-gray-100 text-gray-500'
+              }`}
+            >
               #{rank}
             </div>
             <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
@@ -60,25 +69,38 @@ export default function ProductCard({ product, rank }: ProductCardProps) {
                 alt={product.shortTitle}
                 className="w-full h-full object-contain p-2 transition-transform duration-300 hover:scale-105"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src =
+                    'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=600';
+                }}
               />
             </div>
           </div>
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            {/* Badges */}
+            {/* Badges & specs row */}
             <div className="flex flex-wrap items-center gap-2 mb-2">
               {product.badge && (
-                <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${badgeColors[product.badge] || 'bg-gray-100 text-gray-600 border-gray-200'}`}>
+                <span
+                  className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${
+                    badgeColors[product.badge] || 'bg-gray-100 text-gray-600 border-gray-200'
+                  }`}
+                >
                   {product.badge}
                 </span>
               )}
-              {product.btu > 0 && (
-                <span className="text-xs text-gray-400 font-medium">{product.btu.toLocaleString()} BTU</span>
-              )}
-              {product.coverage > 0 && (
-                <span className="text-xs text-gray-400">Up to {product.coverage} sq ft</span>
-              )}
+              {product.specs.slice(0, 3).map((spec) => (
+                <span
+                  key={spec.label}
+                  className="text-xs text-gray-400 font-medium"
+                  title={`${spec.label}: ${spec.value}`}
+                >
+                  {spec.value}
+                </span>
+              ))}
             </div>
 
             <h2 className="text-base font-bold text-gray-900 leading-snug mb-2 line-clamp-2">
@@ -90,7 +112,10 @@ export default function ProductCard({ product, rank }: ProductCardProps) {
             {/* Feature Tags */}
             <div className="flex flex-wrap gap-1.5 mt-3">
               {product.features.slice(0, 4).map((f) => (
-                <span key={f} className="text-xs bg-slate-50 text-slate-600 border border-slate-200 rounded-md px-2 py-0.5">
+                <span
+                  key={f}
+                  className="text-xs bg-slate-50 text-slate-600 border border-slate-200 rounded-md px-2 py-0.5"
+                >
                   {f}
                 </span>
               ))}
@@ -120,6 +145,20 @@ export default function ProductCard({ product, rank }: ProductCardProps) {
             </div>
           </div>
         </div>
+
+        {/* Spec strip */}
+        {product.specs.length > 0 && (
+          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-gray-100">
+            {product.specs.slice(0, 4).map((spec) => (
+              <div key={spec.label} className="min-w-0">
+                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                  {spec.label}
+                </div>
+                <div className="text-sm font-semibold text-gray-800 truncate">{spec.value}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Expand Pros/Cons */}
         <button
