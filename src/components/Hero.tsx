@@ -1,0 +1,89 @@
+import { useState } from 'react';
+import { Wind, Zap, Volume2, Home, ChevronDown } from 'lucide-react';
+
+interface HeroProps {
+  onFilterChange: (filter: string) => void;
+  activeFilter: string;
+}
+
+const filters = [
+  { id: 'all', label: 'All Units', icon: Home },
+  { id: 'Cooling Power', label: 'Cooling Power', icon: Wind },
+  { id: 'Energy Saving', label: 'Energy Saving', icon: Zap },
+  { id: 'Quiet Mode', label: 'Quiet Mode', icon: Volume2 },
+];
+
+export default function Hero({ onFilterChange, activeFilter }: HeroProps) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <section className="relative min-h-[520px] flex flex-col justify-end overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Cool room"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/90" />
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-32">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-5">
+          <a href="/" className="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <a href="/home-appliances" className="hover:text-white transition-colors">Home Appliances</a>
+          <span>/</span>
+          <span className="text-white/70">Cheap Window Air Conditioners</span>
+        </nav>
+
+        {/* Heading */}
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/30 rounded-full px-3 py-1 mb-4">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-emerald-300 text-xs font-semibold tracking-wide uppercase">Updated May 2026</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.1] mb-4">
+            Cheap Window Air<br />
+            <span className="text-emerald-400">Conditioners Under $200</span>
+          </h1>
+          <p className="text-lg text-white/70 leading-relaxed max-w-xl mb-2">
+            We tested 16 budget window ACs so you don't have to. Here are the best cheap window air conditioners that actually cool — ranked by value, noise level, and cooling power.
+          </p>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1.5 text-sm text-emerald-300 hover:text-emerald-200 transition-colors mt-1"
+          >
+            <span>{expanded ? 'Show less' : 'Why trust our picks?'}</span>
+            <ChevronDown className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+          </button>
+          {expanded && (
+            <p className="text-sm text-white/60 mt-2 max-w-lg leading-relaxed">
+              Our editorial team analyzes thousands of verified Amazon reviews, BTU efficiency ratings, noise levels, and real user feedback to surface the best deals. We earn a small commission if you buy through our links — at no extra cost to you.
+            </p>
+          )}
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="mt-8 flex flex-wrap gap-3">
+          {filters.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => onFilterChange(id === 'all' ? '' : id)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                (id === 'all' && !activeFilter) || activeFilter === id
+                  ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/30'
+                  : 'bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
