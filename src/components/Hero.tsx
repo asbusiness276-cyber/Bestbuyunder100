@@ -9,6 +9,10 @@ import {
   Battery,
   Maximize2,
   ShieldCheck,
+  Boxes,
+  Droplets,
+  Layers,
+  Baby,
   type LucideIcon,
 } from 'lucide-react';
 import type { Article } from '../data/articles';
@@ -28,6 +32,10 @@ const iconMap: Record<string, LucideIcon> = {
   Battery,
   Maximize2,
   ShieldCheck,
+  Boxes,
+  Droplets,
+  Layers,
+  Baby,
 };
 
 export default function Hero({ article, onFilterChange, activeFilter }: HeroProps) {

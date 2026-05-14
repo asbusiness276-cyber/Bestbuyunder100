@@ -1,4 +1,5 @@
 import type { Product } from './products';
+import { twinMattressProducts } from './twinMattressProducts';
 
 export interface FilterButton {
   id: string;
@@ -29,6 +30,8 @@ export interface QuickPick {
 
 export interface Article {
   slug: string;
+  /** Short label for primary navigation (desktop header). */
+  navLabel: string;
   keyword: string;
   metaTitle: string;
   metaDescription: string;
@@ -51,7 +54,7 @@ export interface Article {
   faqs: FAQItem[];
   quickPicks: QuickPick[];
   budgetTips: string[];
-  relatedArticles: string[];
+  relatedArticles: { label: string; href: string }[];
   sortOptions: { value: string; label: string }[];
   defaultSort: string;
 }
@@ -755,7 +758,149 @@ const ebikeProducts: Product[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'twin-mattress-under-100',
+    navLabel: 'Twin mattresses',
+    keyword: 'twin mattress under $100',
+    metaTitle: 'Best Twin Mattress Under $100 (2026 Buyer’s Guide)',
+    metaDescription:
+      'We compared 17 twin mattresses under $100 — memory foam, cooling gel, and hybrid picks for kids rooms, guest beds, and bunk beds. Best value, top rated, and editor-tested.',
+    category: 'Mattresses & Bedroom',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Mattresses & Bedroom', href: '/twin-mattress-under-100/' },
+      { label: 'Twin Mattress Under $100', href: '/twin-mattress-under-100/' },
+    ],
+    heroImage:
+      'https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best Twin Mattress',
+    heroTitleLine2: 'Under $100',
+    heroSubtitle:
+      'We compared 17 twin-size mattresses priced at or near $100 — memory foam, cooling gel, and hybrid options — ranked by verified ratings, height profile, CertiPUR safety, and real-world value for guest rooms, kids, and bunk beds.',
+    heroTrustNote:
+      'We read thousands of Amazon reviews, compare foam certifications (CertiPUR-US, Oeko-Tex), fiberglass-free claims, and height profiles so you do not waste money on a mattress that will not fit your frame. We earn a small commission if you buy through our links — at no extra cost to you.',
+    introHeading: 'Best twin mattress under $100 (2026)',
+    introParagraphs: [
+      'Shopping for a twin mattress under $100 used to mean accepting mystery foam and zero accountability. In 2026, brands like Zinus, NapQueen, and Avenco ship real CertiPUR-US foams, fiberglass-free builds, and even hybrid spring layers — compressed in a box you can carry upstairs alone.',
+      'Our top overall pick for most shoppers is the EGOHOME 8" Cooling Gel Twin at $98 — it combines cooling gel, medium-firm support, and a 4.4-star average at a true under-$100 street price. If you need the lowest possible spend for a bunk or trundle, the 5" gel twin at $59 earned a standout 4.5-star average while staying ultra slim for safety rails.',
+      'Note: one Amazon Basics 8" twin listing can float slightly above $100 depending on the day — we still include it because it is a common “almost budget” upgrade when it dips on sale.',
+    ],
+    filters: [
+      { id: 'all', label: 'All', icon: 'Home' },
+      { id: 'Memory Foam', label: 'Memory foam', icon: 'Boxes' },
+      { id: 'Cooling Gel', label: 'Cooling gel', icon: 'Droplets' },
+      { id: 'Hybrid', label: 'Hybrid', icon: 'Layers' },
+      { id: 'Bunk & Kids', label: 'Bunk & kids', icon: 'Baby' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Height', source: 'spec', specLabel: 'Height' },
+      { label: 'Feel', source: 'spec', specLabel: 'Feel' },
+      { label: 'Type', source: 'spec', specLabel: 'Type' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for our favorite twin mattresses under $100',
+    products: twinMattressProducts,
+    buyingGuideHeading: 'How to Choose a Twin Mattress Under $100',
+    buyingGuide: [
+      {
+        title: 'Match Height to Your Frame',
+        body:
+          'Bunk beds, trundles, and daybeds often need a 5–6" mattress for guardrail safety. Standard twin frames can usually take 8–10". When in doubt, measure rail height and compare to the mattress spec sheet.',
+      },
+      {
+        title: 'Fiberglass-Free vs “Traditional” Fire Barriers',
+        body:
+          'Many shoppers specifically want fiberglass-free mattresses after viral stories about tear-outs. If that matters to you, verify the listing language and recent Q&A — we call out fiberglass-free models like Zinus “New Version” and several gel twins in this guide.',
+      },
+      {
+        title: 'CertiPUR-US and Oeko-Tex',
+        body:
+          'CertiPUR-US certified foam limits certain chemicals and VOC emissions. Oeko-Tex on the cover tests for harmful substances. These certifications are the fastest way to filter out the sketchiest ultra-cheap foams.',
+      },
+      {
+        title: 'Hybrid vs All-Foam',
+        body:
+          'Hybrids sleep cooler and feel more “on top” of the bed. All-foam twins are lighter, quieter, and easier to move — ideal for dorms and kids rooms.',
+      },
+      {
+        title: 'Expansion Time and Odor',
+        body:
+          'Bed-in-a-box twins can take 24–72 hours to fully expand. A mild “new foam” smell is normal — air the room and skip fitted sheets for the first night if you are sensitive.',
+      },
+      {
+        title: 'Weight Limits',
+        body:
+          'Slim 5–6" twins are best for kids, teens, and lightweight adults. If you are over ~200 lb, prioritize 8"+ profiles or hybrid coils.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can a good twin mattress really cost less than $100?',
+        a: 'Yes — especially for 5–6" memory foam and slim hybrids sold direct online. You will trade away luxury thickness and edge support, but you can still get CertiPUR-US foams and fiberglass-free builds. Our list includes multiple options between $59 and $99 with strong ratings.',
+      },
+      {
+        q: 'What is the best twin mattress under $100 for a bunk bed?',
+        a: 'Look for a low profile (usually 5–6") so safety rails stay effective. The 5" gel twin bunk-ready model at $59 is purpose-built for bunk beds, trundles, and daybeds with a 4.5-star average.',
+      },
+      {
+        q: 'Is memory foam hot on a budget twin?',
+        a: 'Basic memory foam can sleep warm. If you run hot, prioritize gel-infused foams or hybrids with airflow (EGOHOME, Zinus Green Tea Cooling, FDW, GAESTE).',
+      },
+      {
+        q: 'Do I need a box spring?',
+        a: 'Most modern foam and hybrid twins work on platform beds, slatted frames, or adjustable bases — read the brand’s spacing requirements for slats (usually 3" or less gaps).',
+      },
+      {
+        q: 'Why do some twins smell after unboxing?',
+        a: 'Compressed foam releases a mild VOC “new mattress” smell for a day or two. CertiPUR-US limits the worst offenders. Ventilate the room and wait before adding a mattress protector if you are sensitive.',
+      },
+      {
+        q: 'Is a hybrid twin better than foam under $100?',
+        a: 'Hybrids add spring airflow and bounce — great if you dislike the “stuck” feeling of memory foam. Foam-only twins are lighter and usually cheaper — pick based on sleeper weight and heat.',
+      },
+      {
+        q: 'Will a twin mattress work for an RV or camper?',
+        a: 'Measure your platform first — RV “short queen” and twin XL are different sizes. A standard twin is roughly 38x75 inches; confirm your cutout before ordering.',
+      },
+      {
+        q: 'What if my mattress is too firm?',
+        a: 'Try a 2–3" mattress topper before returning — many Amazon mattresses have a trial window, but return policies vary by seller. Always read the return terms on the listing.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'egohome-8-twin-cooling' },
+      { label: 'Cheapest Pick', productId: 'generic-twin-5-bunk-gel' },
+      { label: 'Best Value', productId: 'zinus-green-tea-5-twin' },
+      { label: 'Top Rated', productId: 'rolanstar-twin-6-top-rated' },
+      { label: 'Best Hybrid', productId: 'avenco-6-hybrid-twin' },
+      { label: 'Thickest Budget Foam', productId: 'amazon-basics-twin-8-memory' },
+    ],
+    budgetTips: [
+      'Always measure bunk/trundle height before buying — slim profiles are a safety feature, not just a cost cut',
+      'Sort by “most recent reviews” on Amazon to catch foam formula changes year to year',
+      'If a listing avoids saying fiberglass-free, read the Q&A carefully before cutting the cover',
+      'Pair a waterproof protector with kids’ mattresses — spills are the #1 warranty voider',
+      'Check whether your frame needs a bunkie board for foam mattresses on wide slat gaps',
+    ],
+    relatedArticles: [
+      { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best mattress toppers under $50', href: '#' },
+      { label: 'Best bed frames under $100', href: '#' },
+      { label: 'Best pillows under $30', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
     slug: 'electric-bikes-under-200-for-adults',
+    navLabel: 'Electric bikes',
     keyword: 'electric bikes under $200 for adults',
     metaTitle: 'Best Electric Bikes Under $200 for Adults (2026 Buyer’s Guide)',
     metaDescription:
@@ -767,9 +912,9 @@ export const articles: Article[] = [
       { label: 'Electric Bikes Under $200', href: '/electric-bikes-under-200-for-adults/' },
     ],
     heroImage:
-      'https://images.pexels.com/photos/8348624/pexels-photo-8348624.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1600',
     heroBadge: 'Updated May 2026',
-    heroTitleLine1: 'Electric Bikes for Adults',
+    heroTitleLine1: 'Best Electric Bikes for Adults',
     heroTitleLine2: 'Under $200',
     heroSubtitle:
       'We compared 16 ebikes priced under $200 — folding commuters, full-suspension mini bikes, and 26" mountain ebikes — ranked by motor power, real-world range, safety certification, and verified buyer ratings.',
@@ -880,11 +1025,11 @@ export const articles: Article[] = [
       'Buy a quality U-lock — cheap ebikes are surprisingly attractive to thieves',
     ],
     relatedArticles: [
-      'Best Cheap Electric Scooters Under $200',
-      'Best Folding Bikes Under $300',
-      'Best Bike Locks Under $50',
-      'How to Charge an Ebike Battery Safely',
-      'Class 1 vs Class 2 vs Class 3 Ebikes Explained',
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Best folding bikes under $300', href: '#' },
+      { label: 'How to charge an ebike battery safely', href: '#' },
+      { label: 'Class 1 vs Class 2 vs Class 3 ebikes explained', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
@@ -894,21 +1039,22 @@ export const articles: Article[] = [
     defaultSort: 'rating',
   },
   {
-    slug: 'cheap-window-air-conditioners-under-100',
-    keyword: 'cheap window air conditioners under $100',
+    slug: 'cheap-window-air-conditioners-under-200',
+    navLabel: 'Window ACs',
+    keyword: 'cheap window air conditioners under $200',
     metaTitle: 'Best Cheap Window Air Conditioners Under $200 (2026)',
     metaDescription:
       'We tested 16 budget window ACs. Here are the best cheap window air conditioners under $200 ranked by BTU, energy efficiency, and noise level.',
     category: 'Home Appliances',
     breadcrumb: [
       { label: 'Home', href: '/' },
-      { label: 'Home Appliances', href: '/home-appliances' },
-      { label: 'Cheap Window Air Conditioners', href: '/cheap-window-air-conditioners-under-100/' },
+      { label: 'Home Appliances', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Cheap Window Air Conditioners Under $200', href: '/cheap-window-air-conditioners-under-200/' },
     ],
     heroImage:
       'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1600',
     heroBadge: 'Updated May 2026',
-    heroTitleLine1: 'Cheap Window Air',
+    heroTitleLine1: 'Best Cheap Window Air',
     heroTitleLine2: 'Conditioners Under $200',
     heroSubtitle:
       'We tested 16 budget window ACs so you don’t have to. Here are the best cheap window air conditioners that actually cool — ranked by value, noise level, and cooling power.',
@@ -1017,11 +1163,11 @@ export const articles: Article[] = [
       'All-white units stay cooler in direct sunlight',
     ],
     relatedArticles: [
-      'Best Portable Air Conditioners Under $200',
-      'Cheap Electric Fans Under $50',
-      'Best Smart Thermostats Under $100',
-      'Window AC vs Portable AC: Which Is Better?',
-      'How to Insulate a Window AC Unit',
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best portable air conditioners under $200', href: '#' },
+      { label: 'Cheap electric fans under $50', href: '#' },
+      { label: 'Window AC vs portable AC: which is better?', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
@@ -1032,16 +1178,25 @@ export const articles: Article[] = [
   },
 ];
 
+/** Old URLs from earlier publishes → current slug (path segment only). */
+export const articleSlugRedirects: Record<string, string> = {
+  'cheap-window-air-conditioners-under-100': 'cheap-window-air-conditioners-under-200',
+};
+
 export function getArticleBySlug(slug: string): Article | undefined {
-  return articles.find((a) => a.slug === slug);
+  const normalized = slugRedirects(slug);
+  return articles.find((a) => a.slug === normalized);
 }
 
-// Find the article matching the current pathname, defaulting to the first article.
-export function resolveArticleFromPath(pathname: string): Article {
+function slugRedirects(slug: string): string {
+  return articleSlugRedirects[slug] ?? slug;
+}
+
+export function resolveArticleFromPath(pathname: string): Article | null {
   const cleaned = pathname.replace(/^\/+|\/+$/g, '');
   if (!cleaned) {
-    return articles[0];
+    return null;
   }
-  const match = getArticleBySlug(cleaned);
-  return match ?? articles[0];
+  const normalized = slugRedirects(cleaned);
+  return articles.find((a) => a.slug === normalized) ?? null;
 }
