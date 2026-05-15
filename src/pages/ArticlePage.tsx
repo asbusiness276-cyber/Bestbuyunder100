@@ -81,8 +81,6 @@ export default function ArticlePage({ article }: ArticlePageProps) {
               ))}
             </div>
 
-            <AuthorBio />
-
             <div className="mb-8">
               <ComparisonTable
                 products={article.products}
@@ -159,6 +157,8 @@ export default function ArticlePage({ article }: ArticlePageProps) {
                 independent and are not influenced by affiliate relationships.
               </p>
             </div>
+
+            <AuthorBio />
           </div>
 
           <aside className="lg:w-80 shrink-0">
