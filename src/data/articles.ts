@@ -1,4 +1,5 @@
 import type { Product } from './products';
+import { queenBoxSpringProducts } from './queenBoxSpringProducts';
 import { twinMattressProducts } from './twinMattressProducts';
 
 export interface FilterButton {
@@ -758,6 +759,146 @@ const ebikeProducts: Product[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'queen-box-spring-under-100',
+    navLabel: 'Queen box springs',
+    keyword: 'box spring queen under $100',
+    metaTitle: 'Best Queen Box Spring Under $100 (2026 Buyer’s Guide)',
+    metaDescription:
+      'We compared 12 queen box springs under $100 — 5", 7", and 9" metal foundations with 3,000 lb ratings, noise-free frames, and easy assembly. Best value, top rated, and low-profile picks.',
+    category: 'Mattresses & Bedroom',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Mattresses & Bedroom', href: '/queen-box-spring-under-100/' },
+      { label: 'Queen Box Spring Under $100', href: '/queen-box-spring-under-100/' },
+    ],
+    heroImage:
+      'https://images.pexels.com/photos/1648773/pexels-photo-1648773.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best Queen Box Spring',
+    heroTitleLine2: 'Under $100',
+    heroSubtitle:
+      'We compared 12 queen-size metal box springs and foundations under $100 — 5", 7", and 9" profiles — ranked by verified ratings, weight capacity, noise-free construction, and real assembly time.',
+    heroTrustNote:
+      'We compare steel gauge claims, 3,000 lb capacity ratings, profile height, and fabric cover quality so you do not buy a squeaky foundation that sags in a year. We earn a small commission if you buy through our links — at no extra cost to you.',
+    introHeading: 'Best queen box spring under $100 (2026)',
+    introParagraphs: [
+      'A queen box spring under $100 used to mean a flimsy wood slat kit that squeaked within months. In 2026, Amazon is full of welded steel queen foundations with fabric covers, 3,000 lb ratings, and tool-free assembly — often shipped in a single flat box.',
+      'Our best overall value for most shoppers is the 9" heavy-duty queen foundation at $53 — it hits a 4.4-star average with a full 3,000 lb capacity at the lowest price in the 9" category. Need the lowest bed height for a thick memory foam mattress? The 5" and 7" models at $49 are the cheapest true queen foundations on this list.',
+      'Modern “box springs” in this price range are almost always metal platforms with a cover — not traditional coil box springs. That is normal: they support foam and hybrid mattresses better and ship easier.',
+    ],
+    filters: [
+      { id: 'all', label: 'All', icon: 'Home' },
+      { id: '5 Inch', label: '5" low profile', icon: 'Layers' },
+      { id: '7 Inch', label: '7" standard', icon: 'Boxes' },
+      { id: '9 Inch', label: '9" high profile', icon: 'Maximize2' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Height', source: 'spec', specLabel: 'Height' },
+      { label: 'Capacity', source: 'spec', specLabel: 'Capacity' },
+      { label: 'Material', source: 'spec', specLabel: 'Material' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for our favorite queen box springs under $100',
+    products: queenBoxSpringProducts,
+    buyingGuideHeading: 'How to Choose a Queen Box Spring Under $100',
+    buyingGuide: [
+      {
+        title: 'Profile Height: 5" vs 7" vs 9"',
+        body:
+          'Choose 5" for platform beds and thick mattresses when you want a lower sleep surface. Pick 7" for a balanced middle height. Use 9" when you have a shorter mattress, an older bed frame designed for a traditional box spring, or you want the bed higher for easier entry.',
+      },
+      {
+        title: 'Metal Foundation vs Traditional Box Spring',
+        body:
+          'Most sub-$100 “box springs” are steel platforms with a fabric skirt — not coil springs. That is what you want for memory foam and hybrids. True coil box springs are rare in this budget and usually cost more.',
+      },
+      {
+        title: 'Weight Capacity Matters',
+        body:
+          'Look for at least 2,000–3,000 lb total capacity for two adults plus mattress. Our top picks list 3,000 lb unless noted. Heavier sleepers should prioritize welded frames and reinforced center support.',
+      },
+      {
+        title: 'Noise-Free Construction',
+        body:
+          'Welded joints and tight bolt patterns prevent squeaks. Read recent reviews mentioning “squeak” or “rattle” — metal foundations are quiet when assembled correctly with all screws tightened.',
+      },
+      {
+        title: 'Frame Compatibility',
+        body:
+          'Queen foundations fit standard 60" × 80" mattresses. Confirm your bed frame accepts a freestanding foundation or needs a bolt-on bracket. Some platform frames make a box spring optional.',
+      },
+      {
+        title: 'Assembly Time',
+        body:
+          'Budget models assemble in 15–30 minutes with included tools. Folding designs (like GRUSIGN) can be faster. Tighten all hardware after 48 hours of use — metal settles slightly at first.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you get a good queen box spring for under $100?',
+        a: 'Yes. Welded steel queen foundations with fabric covers routinely sell between $49 and $87 with 4.2–4.5 star averages. You are buying support and height, not luxury upholstery — and that is exactly what most foam mattresses need.',
+      },
+      {
+        q: 'Do I still need a box spring in 2026?',
+        a: 'Many platform beds do not require one, but a foundation still adds height, airflow, and even support. Memory foam warranties sometimes specify a solid, flat base with minimal flex — these metal “box springs” qualify when slats are close enough or the surface is continuous.',
+      },
+      {
+        q: 'What is the best queen box spring under $100 for a memory foam mattress?',
+        a: 'Use a flat, rigid metal foundation with a breathable cover. A 7" or 9" model at 3,000 lb capacity is ideal for heavier foam mattresses. Low-profile 5" works if your frame already adds height.',
+      },
+      {
+        q: '5 inch vs 9 inch box spring — which should I buy?',
+        a: 'Buy 5" if your mattress + frame would otherwise be too tall. Buy 9" if you need more lift for an older frame, easier bed entry, or a thinner mattress. 7" is the safe default for most shoppers.',
+      },
+      {
+        q: 'Are cheap metal box springs noisy?',
+        a: 'Quality welded frames are quiet when every bolt is tightened. Noise usually comes from loose hardware or a frame that is too large for the foundation. Re-tighten after the first week of use.',
+      },
+      {
+        q: 'Will a queen box spring fit my bed frame?',
+        a: 'Queen foundations are built for 60" × 80" mattresses. Measure inside your frame rails and check whether you need a standalone foundation or one that bolts to a headboard.',
+      },
+      {
+        q: 'Can I use a box spring on the floor?',
+        a: 'Many metal foundations can sit on the floor short-term, but you lose airflow and may void some warranties. A platform frame or bed with center support is better long term.',
+      },
+      {
+        q: 'What is the difference between a box spring and a foundation?',
+        a: 'Retailers use the terms interchangeably. In this price range you are almost always getting a metal foundation with a fabric cover — not a spring-filled box.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'uomeur-7-queen-68' },
+      { label: 'Best Value', productId: 'queen-9-heavy-duty-53' },
+      { label: 'Cheapest Pick', productId: 'queen-7-foundation-49' },
+      { label: 'Top Rated', productId: 'queen-9-metal-fabric-70' },
+      { label: 'Best Low Profile', productId: 'queen-5-low-profile-49' },
+      { label: 'Best 9" High Profile', productId: 'qeromy-9-queen-80' },
+    ],
+    budgetTips: [
+      'Measure total bed height (frame + foundation + mattress) before choosing 5" vs 9"',
+      'Tighten every bolt after assembly and again after one week of use',
+      'A washable fabric cover is worth paying $10–20 extra for hygiene and dust control',
+      'Skip “coil box spring” listings under $100 that look like bare metal grids without a cover',
+      'Pair a low-profile 5" foundation with a 10–12" foam mattress on a platform bed for a modern look',
+    ],
+    relatedArticles: [
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best bed frames under $100', href: '#' },
+      { label: 'Best mattress toppers under $50', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
     slug: 'twin-mattress-under-100',
     navLabel: 'Twin mattresses',
     keyword: 'twin mattress under $100',
@@ -885,11 +1026,11 @@ export const articles: Article[] = [
       'Check whether your frame needs a bunkie board for foam mattresses on wide slat gaps',
     ],
     relatedArticles: [
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
       { label: 'Best mattress toppers under $50', href: '#' },
       { label: 'Best bed frames under $100', href: '#' },
-      { label: 'Best pillows under $30', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
@@ -1026,6 +1167,7 @@ export const articles: Article[] = [
     ],
     relatedArticles: [
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
       { label: 'Best folding bikes under $300', href: '#' },
       { label: 'How to charge an ebike battery safely', href: '#' },
@@ -1164,6 +1306,7 @@ export const articles: Article[] = [
     ],
     relatedArticles: [
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
       { label: 'Best portable air conditioners under $200', href: '#' },
       { label: 'Cheap electric fans under $50', href: '#' },
