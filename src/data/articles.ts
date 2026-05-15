@@ -1,5 +1,6 @@
 import type { Product } from './products';
 import { queenBoxSpringProducts } from './queenBoxSpringProducts';
+import { simRacingCockpitProducts } from './simRacingCockpitProducts';
 import { twinMattressProducts } from './twinMattressProducts';
 
 export interface FilterButton {
@@ -759,6 +760,146 @@ const ebikeProducts: Product[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'sim-racing-cockpit-under-100',
+    navLabel: 'Sim racing rigs',
+    keyword: 'sim racing cockpit under $100',
+    metaTitle: 'Best Sim Racing Cockpit Under $100 (2026 Buyer’s Guide)',
+    metaDescription:
+      'We compared 12 sim racing cockpits and wheel stands under $100 — foldable frames, desk mounts, and Logitech/Thrustmaster-compatible rigs. Best value, top rated, and budget desk setups.',
+    category: 'Gaming & Tech',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Gaming & Tech', href: '/sim-racing-cockpit-under-100/' },
+      { label: 'Sim Racing Cockpit Under $100', href: '/sim-racing-cockpit-under-100/' },
+    ],
+    heroImage:
+      'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best Sim Racing Cockpit',
+    heroTitleLine2: 'Under $100',
+    heroSubtitle:
+      'We compared 12 sim racing wheel stands and cockpits under $100 — foldable steel frames, desk clamps, and Logitech G29 / Thrustmaster T300 compatible rigs ranked by stability, compatibility, and verified ratings.',
+    heroTrustNote:
+      'We focus on frame flex, foldability, shifter mounts, and real compatibility with Logitech, Thrustmaster, Fanatec, and MOZA gear — wheels and pedals are almost never included at this price. We earn a small commission if you buy through our links — at no extra cost to you.',
+    introHeading: 'Best sim racing cockpit under $100 (2026)',
+    introParagraphs: [
+      'A sim racing cockpit under $100 will not include a steering wheel or pedals — you are buying the frame that holds them steady. The good news: foldable steel stands from GTPLAYER, VEVOR, and DIWANGUS now rival entry rigs that used to cost $200+.',
+      'Our top pick for most buyers is the GTPLAYER wheel stand at $69 — 4.5 stars, carbon steel, folds flat, and fits Logitech G29/G920 and Thrustmaster wheels with a shifter mount. On a tight budget? The VEVOR foldable stand at $58 or the EG STARTS desk mount kit at $44 are the cheapest ways to stop clamping your wheel to a wobbly desk.',
+      'We skipped listings over $100 (like full chair bundles) and generic gaming chairs that are not true sim cockpits. Every pick below is frame-only unless noted.',
+    ],
+    filters: [
+      { id: 'all', label: 'All', icon: 'Home' },
+      { id: 'Foldable', label: 'Foldable', icon: 'Maximize2' },
+      { id: 'Wheel Stand', label: 'Wheel stand', icon: 'Boxes' },
+      { id: 'Desk Mount', label: 'Desk mount', icon: 'Gauge' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Type', source: 'spec', specLabel: 'Type' },
+      { label: 'Foldable', source: 'spec', specLabel: 'Foldable' },
+      { label: 'Brands', source: 'spec', specLabel: 'Brands' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for sim racing cockpits and wheel stands under $100',
+    products: simRacingCockpitProducts,
+    buyingGuideHeading: 'How to Choose a Sim Racing Cockpit Under $100',
+    buyingGuide: [
+      {
+        title: 'Wheel Stand vs Desk Mount',
+        body:
+          'Floor stands (GTPLAYER, VEVOR, RACGTING) give you proper pedal spacing and less flex when you stamp the brakes. Desk mounts (EG STARTS) are cheaper and great if you already have a sturdy desk — but glass or thin IKEA tops can flex or crack.',
+      },
+      {
+        title: 'Check Wheel & Pedal Compatibility',
+        body:
+          'Most stands list Logitech G25/G27/G29/G920/G923 and Thrustmaster T300/T248. Fanatec and MOZA direct-drive bases need pre-drilled holes or an adapter plate — confirm your exact model in the Q&A before buying.',
+      },
+      {
+        title: 'Flex and Rigidity',
+        body:
+          'Under $100, some flex is normal — especially on long brake presses. Carbon steel L-frames (Grefinity) and heavier tube stands reduce wobble. Tighten bolts after your first week; they loosen as the frame settles.',
+      },
+      {
+        title: 'Foldable vs Fixed',
+        body:
+          'Foldable rigs (GTPLAYER, VEVOR, DIWANGUS) store upright in a closet — ideal for apartments. Fixed L-stands can feel stiffer but never disappear behind a door.',
+      },
+      {
+        title: 'Shifter Mount Side',
+        body:
+          'Left- and right-hand shifter mounts matter for H-pattern vs sequential setups. If you run a shifter, verify the stand includes a bracket and that it clears your seat.',
+      },
+      {
+        title: 'What Is Not Included',
+        body:
+          'Budget cockpits rarely ship with a wheel, pedals, shifter, seat, or monitor mount. Plan $150–$400+ for a Logitech G923 bundle on top of the frame.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you get a good sim racing cockpit for under $100?',
+        a: 'Yes — if you mean a wheel stand or desk mount, not a full aluminum profile rig with seat sliders. Steel foldable stands between $58 and $99 deliver a huge upgrade over clamping a wheel to a desk, especially for brake pressure.',
+      },
+      {
+        q: 'Does a $100 cockpit include a steering wheel?',
+        a: 'Almost never. You buy the frame only and mount your existing Logitech, Thrustmaster, or Fanatec wheel and pedals. Bundle “cockpits” with chairs often exceed $150.',
+      },
+      {
+        q: 'Will a budget stand work with Logitech G29?',
+        a: 'Every stand on our list explicitly lists G29/G920/G923 compatibility. Use the included bolts or clamp plates and re-tighten after the first few races.',
+      },
+      {
+        q: 'Foldable vs fixed — which is better?',
+        a: 'Foldable if you share a room or need storage. Fixed L-stands can feel slightly stiffer for heavy braking but take permanent floor space.',
+      },
+      {
+        q: 'Are desk mounts worth it under $100?',
+        a: 'Desk mounts ($44–$58) are the cheapest fix for flex if you have a solid wood or metal desk. Avoid glass, particle board, and wobbly L-desks.',
+      },
+      {
+        q: 'Can I use these stands on Xbox or PlayStation?',
+        a: 'The stand is console-agnostic — compatibility is about your wheel base. Logitech and Thrustmaster console wheels work the same on PS5, Xbox, or PC as long as the stand has the right mounting pattern.',
+      },
+      {
+        q: 'Do I need a racing seat?',
+        a: 'No. Most sub-$100 stands work with a regular desk chair. Models like ARES WING add a chair fixing slot to reduce frame movement when you slide back.',
+      },
+      {
+        q: 'Why do some stands list 4.5 stars and others 3.4?',
+        a: 'Lower ratings often reflect missing hardware, confusing instructions, or buyers who expected a wheel in the box. Read the most recent reviews and filter for your exact wheel model.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'gtplayer-wheel-stand-69' },
+      { label: 'Best Value', productId: 'vevor-racing-stand-58' },
+      { label: 'Cheapest Pick', productId: 'eg-starts-desk-mount-set-44' },
+      { label: 'Top Rated', productId: 'grefinity-wheel-stand-66' },
+      { label: 'Best Foldable', productId: 'diwangus-foldable-99' },
+      { label: 'Best Desk Setup', productId: 'eg-starts-desk-clamp-58' },
+    ],
+    budgetTips: [
+      'Buy the stand after you own the wheel — match mounting holes to your exact model',
+      'Re-tighten every bolt after 3–5 hours of racing; flex often comes from loose hardware',
+      'Add non-slip rubber feet if you race on hardwood or tile',
+      'A wheel + pedal bundle sale often beats buying a “cockpit package” over $100',
+      'Measure doorways and closet depth before choosing a foldable vs fixed stand',
+    ],
+    relatedArticles: [
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best gaming chairs under $100', href: '#' },
+      { label: 'Logitech G29 vs G920: which wheel to buy?', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
     slug: 'queen-box-spring-under-100',
     navLabel: 'Queen box springs',
     keyword: 'box spring queen under $100',
@@ -885,11 +1026,11 @@ export const articles: Article[] = [
       'Pair a low-profile 5" foundation with a 10–12" foam mattress on a platform bed for a modern look',
     ],
     relatedArticles: [
+      { label: 'Best sim racing cockpit under $100', href: '/sim-racing-cockpit-under-100/' },
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
       { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
       { label: 'Best bed frames under $100', href: '#' },
-      { label: 'Best mattress toppers under $50', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
@@ -1026,11 +1167,11 @@ export const articles: Article[] = [
       'Check whether your frame needs a bunkie board for foam mattresses on wide slat gaps',
     ],
     relatedArticles: [
+      { label: 'Best sim racing cockpit under $100', href: '/sim-racing-cockpit-under-100/' },
       { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
       { label: 'Best mattress toppers under $50', href: '#' },
-      { label: 'Best bed frames under $100', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
@@ -1166,6 +1307,7 @@ export const articles: Article[] = [
       'Buy a quality U-lock — cheap ebikes are surprisingly attractive to thieves',
     ],
     relatedArticles: [
+      { label: 'Best sim racing cockpit under $100', href: '/sim-racing-cockpit-under-100/' },
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
       { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
@@ -1305,6 +1447,7 @@ export const articles: Article[] = [
       'All-white units stay cooler in direct sunlight',
     ],
     relatedArticles: [
+      { label: 'Best sim racing cockpit under $100', href: '/sim-racing-cockpit-under-100/' },
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
       { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
