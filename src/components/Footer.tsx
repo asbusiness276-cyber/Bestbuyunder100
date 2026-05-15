@@ -1,5 +1,6 @@
 import { Tag } from 'lucide-react';
 import { articles } from '../data/articles';
+import { siteAuthor } from '../data/author';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -108,7 +109,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-500">&copy; {year} BestBuyUnder100.com — All rights reserved.</p>
+          <p className="text-xs text-slate-500">
+            &copy; {year} BestBuyUnder100.com — All rights reserved. · Guides by{' '}
+            <a href="/about/" className="hover:text-slate-300 transition-colors">
+              {siteAuthor.name}
+            </a>
+          </p>
           <p className="text-xs text-slate-600 text-center">
             As an Amazon Associate we earn from qualifying purchases. Prices and availability are subject to change.
           </p>

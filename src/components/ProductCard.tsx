@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AFFILIATE_REL } from '../constants/affiliate';
 import { Star, Check, X, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import type { Product } from '../data/products';
 
@@ -130,7 +131,7 @@ export default function ProductCard({ product, rank }: ProductCardProps) {
               <a
                 href={product.affiliateUrl}
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={AFFILIATE_REL}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-sm ${

@@ -3,6 +3,8 @@ import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import ComparisonTable from '../components/ComparisonTable';
 import FAQ from '../components/FAQ';
+import AuthorBio from '../components/AuthorBio';
+import { AFFILIATE_REL } from '../constants/affiliate';
 import { articles, type Article } from '../data/articles';
 import { Filter, ArrowUpDown } from 'lucide-react';
 
@@ -78,6 +80,8 @@ export default function ArticlePage({ article }: ArticlePageProps) {
                 </p>
               ))}
             </div>
+
+            <AuthorBio />
 
             <div className="mb-8">
               <ComparisonTable
@@ -170,7 +174,7 @@ export default function ArticlePage({ article }: ArticlePageProps) {
                         <a
                           href={product.affiliateUrl}
                           target="_blank"
-                          rel="noopener noreferrer nofollow"
+                          rel={AFFILIATE_REL}
                           className="flex items-center gap-3 group"
                         >
                           <img

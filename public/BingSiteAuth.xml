@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!-- Optional Bing verification: replace YOUR_BING_AUTH_CODE with the code from Bing Webmaster Tools (XML file method), then upload to site root. Meta tag in index.html is preferred. -->
+<users>
+  <user>YOUR_BING_AUTH_CODE</user>
+</users>

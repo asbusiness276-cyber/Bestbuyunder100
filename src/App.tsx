@@ -10,9 +10,12 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
 import AffiliateDisclosurePage from './pages/AffiliateDisclosurePage';
 import { articleSlugRedirects } from './data/articles';
+import { siteAuthor, sitePublisher } from './data/author';
 import { matchRoute, type AppRoute } from './site/routes';
 
 const SITE = 'https://bestbuyunder100.com';
+const ARTICLE_DATE_PUBLISHED = '2026-05-01';
+const ARTICLE_DATE_MODIFIED = '2026-05-15';
 
 function stripSlashes(path: string) {
   return path.replace(/^\/+|\/+$/g, '');
@@ -26,6 +29,16 @@ function setMeta(attr: 'name' | 'property', key: string, value: string) {
     document.head.appendChild(el);
   }
   el.setAttribute('content', value);
+}
+
+function injectJsonLd(objects: object[]) {
+  objects.forEach((obj) => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-bbu100-jsonld', 'true');
+    script.text = JSON.stringify(obj);
+    document.head.appendChild(script);
+  });
 }
 
 function clearJsonLd() {
@@ -73,33 +86,41 @@ export default function App() {
 
     if (route.type === 'article') {
       const { article } = route;
+      const pageUrl = `${SITE}/${article.slug}/`;
+
       document.title = article.metaTitle;
       setMeta('name', 'description', article.metaDescription);
       setMeta('property', 'og:title', article.metaTitle);
       setMeta('property', 'og:description', article.metaDescription);
       setMeta('property', 'og:image', article.heroImage);
+      setMeta('property', 'og:url', pageUrl);
       setMeta('property', 'og:type', 'article');
+      setMeta('property', 'article:author', siteAuthor.name);
       setMeta('name', 'twitter:card', 'summary_large_image');
       setMeta('name', 'twitter:title', article.metaTitle);
       setMeta('name', 'twitter:description', article.metaDescription);
-      canonical.setAttribute('href', `${SITE}/${article.slug}/`);
+      canonical.setAttribute('href', pageUrl);
+
+      const personSchema = {
+        '@type': 'Person',
+        name: siteAuthor.name,
+        url: siteAuthor.linkedin,
+        sameAs: [siteAuthor.linkedin, siteAuthor.instagram],
+      };
 
       const itemList = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
+        name: article.introHeading,
         itemListElement: article.products.slice(0, 10).map((p, i) => ({
           '@type': 'ListItem',
           position: i + 1,
           item: {
             '@type': 'Product',
             name: p.title,
+            description: p.shortTitle,
             image: p.image,
-            sku: p.asin,
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: p.rating,
-              reviewCount: 50,
-            },
+            ...(p.asin ? { sku: p.asin } : {}),
             offers: {
               '@type': 'Offer',
               price: p.price,
@@ -109,6 +130,23 @@ export default function App() {
             },
           },
         })),
+      };
+
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: article.introHeading,
+        description: article.metaDescription,
+        image: article.heroImage,
+        author: personSchema,
+        publisher: {
+          '@type': 'Organization',
+          name: sitePublisher.name,
+          url: sitePublisher.url,
+        },
+        datePublished: ARTICLE_DATE_PUBLISHED,
+        dateModified: ARTICLE_DATE_MODIFIED,
+        mainEntityOfPage: pageUrl,
       };
 
       const faqPage = {
@@ -132,29 +170,39 @@ export default function App() {
         })),
       };
 
-      [itemList, faqPage, breadcrumb].forEach((obj) => {
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.setAttribute('data-bbu100-jsonld', 'true');
-        script.text = JSON.stringify(obj);
-        document.head.appendChild(script);
-      });
+      injectJsonLd([articleSchema, itemList, faqPage, breadcrumb]);
       return;
     }
 
     if (route.type === 'home') {
       document.title = 'BestBuyUnder100 — Best Affordable Products & Buying Guides';
       const desc =
-        'Honest buying guides for the best affordable products — twin mattresses under $100, window ACs under $200, electric bikes under $200, and more.';
+        'Honest buying guides by Navjeet Kamboj for affordable products — twin mattresses under $100, queen box springs, sim racing cockpits, window ACs, and electric bikes.';
       setMeta('name', 'description', desc);
       setMeta('property', 'og:title', document.title);
       setMeta('property', 'og:description', desc);
       setMeta('property', 'og:image', 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
+      setMeta('property', 'og:url', `${SITE}/`);
       setMeta('property', 'og:type', 'website');
       setMeta('name', 'twitter:card', 'summary_large_image');
       setMeta('name', 'twitter:title', document.title);
       setMeta('name', 'twitter:description', desc);
       canonical.setAttribute('href', `${SITE}/`);
+
+      injectJsonLd([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: sitePublisher.name,
+          url: sitePublisher.url,
+          description: desc,
+          publisher: {
+            '@type': 'Organization',
+            name: sitePublisher.name,
+            url: sitePublisher.url,
+          },
+        },
+      ]);
       return;
     }
 
@@ -191,6 +239,7 @@ export default function App() {
     setMeta('property', 'og:title', m.title);
     setMeta('property', 'og:description', m.description);
     setMeta('property', 'og:type', 'website');
+    setMeta('property', 'og:url', `${SITE}/${route.slug}/`);
     setMeta('name', 'twitter:card', 'summary');
     setMeta('name', 'twitter:title', m.title);
     setMeta('name', 'twitter:description', m.description);

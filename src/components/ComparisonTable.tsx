@@ -111,7 +111,7 @@ export default function ComparisonTable({
                   <a
                     href={p.affiliateUrl}
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="nofollow sponsored noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 hover:text-white bg-emerald-50 hover:bg-emerald-500 border border-emerald-200 hover:border-emerald-500 rounded-lg px-3 py-1.5 transition-all duration-200"
                   >
                     <ExternalLink className="w-3 h-3" />
