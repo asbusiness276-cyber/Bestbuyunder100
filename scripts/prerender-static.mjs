@@ -2,7 +2,7 @@
 
  * Static HTML prerender for Vercel/Bing (no Puppeteer).
 
- * Run after vite build; writes dist/{route}/index.html with crawlable content in #seo-static.
+ * Run after vite build; writes dist/{route}/index.html with crawlable content in #root.
 
  */
 
@@ -12,15 +12,11 @@ import { join, dirname } from 'path';
 
 import { fileURLToPath } from 'url';
 
-
-
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const dist = join(root, 'dist');
 
 const seoPath = join(root, 'scripts', '.seo-pages.json');
-
-
 
 function escapeHtml(value) {
 
@@ -36,8 +32,6 @@ function escapeHtml(value) {
 
 }
 
-
-
 function upsertMeta(html, attr, key, content) {
 
   const re = new RegExp(`<meta ${attr}="${key}" content="[^"]*"\\s*/?>`, 'i');
@@ -49,8 +43,6 @@ function upsertMeta(html, attr, key, content) {
   return html.replace('</head>', `    ${tag}\n  </head>`);
 
 }
-
-
 
 function upsertLink(html, rel, href) {
 
@@ -64,8 +56,6 @@ function upsertLink(html, rel, href) {
 
 }
 
-
-
 function buildCrawlableBody(page) {
 
   const parts = [
@@ -75,8 +65,6 @@ function buildCrawlableBody(page) {
     `<header><h1>${escapeHtml(page.h1)}</h1></header>`,
 
   ];
-
-
 
   if (page.introHeading) {
 
@@ -89,8 +77,6 @@ function buildCrawlableBody(page) {
     parts.push(`<p>${escapeHtml(para)}</p>`);
 
   }
-
-
 
   if (page.products?.length) {
 
@@ -110,8 +96,6 @@ function buildCrawlableBody(page) {
 
   }
 
-
-
   if (page.faqs?.length) {
 
     parts.push('<h2>Frequently asked questions</h2>');
@@ -124,8 +108,6 @@ function buildCrawlableBody(page) {
 
   }
 
-
-
   parts.push(
 
     `<footer><p>Written by <a href="https://in.linkedin.com/in/navjeet-kamboj">Navjeet Kamboj</a>. <a href="https://bestbuyunder100.com/about/">About BestBuyUnder100</a></p></footer>`,
@@ -134,19 +116,13 @@ function buildCrawlableBody(page) {
 
   );
 
-
-
   return parts.join('\n');
 
 }
 
-
-
 function buildHtml(baseHtml, page) {
 
   let html = baseHtml;
-
-
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
 
@@ -168,8 +144,6 @@ function buildHtml(baseHtml, page) {
 
   html = upsertLink(html, 'canonical', page.canonical);
 
-
-
   if (page.jsonLd?.length) {
 
     const scripts = page.jsonLd
@@ -188,28 +162,17 @@ function buildHtml(baseHtml, page) {
 
   }
 
-
-
   const body = buildCrawlableBody(page);
 
-  html = html.replace(
-    /<div id="root">\s*<\/div>/i,
-    `<div id="root"></div>\n    <div id="seo-static" class="seo-crawler-only">${body}</div>`
-  );
-
-
+  html = html.replace(/<div id="root">\s*<\/div>/i, `<motion.div id="root">${body}</div>`);
 
   return html;
 
 }
 
-
-
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8');
 
 const pages = JSON.parse(readFileSync(seoPath, 'utf8'));
-
-
 
 for (const page of pages) {
 
@@ -226,8 +189,6 @@ for (const page of pages) {
   console.log(`Static prerender: ${page.route}`);
 
 }
-
-
 
 console.log(`Static prerender complete (${pages.length} routes).`);
 

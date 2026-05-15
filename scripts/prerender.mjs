@@ -1,3 +1,4 @@
+/** @deprecated Use scripts/prerender-static.mjs (no Puppeteer). Kept for reference only. */
 import { createServer } from 'http';
 import { mkdirSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
