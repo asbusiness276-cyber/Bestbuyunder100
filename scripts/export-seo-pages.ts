@@ -124,11 +124,12 @@ const articlePages: SeoPageExport[] = articles.map((article) => {
       },
       {
         '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: article.faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.q,
-          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        '@type': 'BreadcrumbList',
+        itemListElement: article.breadcrumb.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.label,
+          item: b.href.startsWith('http') ? b.href : `${SITE}${b.href}`,
         })),
       },
     ],

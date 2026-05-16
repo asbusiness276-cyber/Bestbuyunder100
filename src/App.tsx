@@ -148,17 +148,6 @@ export default function App() {
         dateModified: ARTICLE_DATE_MODIFIED,
         mainEntityOfPage: pageUrl,
       };
-
-      const faqPage = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: article.faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.q,
-          acceptedAnswer: { '@type': 'Answer', text: f.a },
-        })),
-      };
-
       const breadcrumb = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -170,7 +159,7 @@ export default function App() {
         })),
       };
 
-      injectJsonLd([articleSchema, itemList, faqPage, breadcrumb]);
+      injectJsonLd([articleSchema, itemList, breadcrumb]);
       return;
     }
 
