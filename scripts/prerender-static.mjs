@@ -96,10 +96,9 @@ function buildHtml(baseHtml, page) {
   }
 
   const body = buildCrawlableBody(page);
-  html = html.replace(
-    /<div id="root">\s*<\/div>/i,
-    `<div id="root"></div>\n    <div id="seo-static" class="seo-crawler-only">${body}</div>`
-  );
+  const el = 'div';
+  const rootBlock = `<${el} id="root"></${el}>\n    <${el} id="seo-static" class="seo-crawler-only" aria-hidden="true">${body}</${el}>`;
+  html = html.replace(/<div id="root">\s*<\/div>/i, rootBlock);
 
   return html;
 }

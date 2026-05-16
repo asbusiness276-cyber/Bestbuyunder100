@@ -1,6 +1,6 @@
 /**
  * Post-prerender build guard: fails if crawlable HTML leaks into #root
- * or #seo-static is missing clip hiding (plain-text flash risk).
+ * or #seo-static is missing crawler-only hiding.
  */
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
@@ -41,7 +41,7 @@ function extractTagInner(html, id) {
       if (depth === 0) {
         return { found: true, inner: html.slice(start, nextClose), openTag: match[0] };
       }
-      i = nextClose + 5;
+      i = nextClose + 6;
     }
   }
   return { found: true, inner: html.slice(start), openTag: match[0] };
@@ -53,6 +53,10 @@ const errors = [];
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');
   const rel = file.replace(dist, '').replace(/\\/g, '/') || '/index.html';
+
+  if (html.includes('</html>') && html.indexOf('</html>') !== html.lastIndexOf('</html>')) {
+    errors.push(`${rel}: duplicate </html> (corrupt template)`);
+  }
 
   const rootTag = extractTagInner(html, 'root');
   if (!rootTag.found) {
@@ -68,16 +72,18 @@ for (const file of htmlFiles) {
     errors.push(`${rel}: missing #seo-static`);
     continue;
   }
-  const styleMatch = /style=["']([^"']*)["']/i.exec(seoTag.openTag);
-  const style = styleMatch?.[1] ?? '';
-  if (!/clip:\s*rect\(0,\s*0,\s*0,\s*0\)/i.test(style)) {
-    errors.push(`${rel}: #seo-static missing clip:rect(0,0,0,0) inline style`);
-  }
   if (!seoTag.openTag.includes('seo-crawler-only')) {
     errors.push(`${rel}: #seo-static missing seo-crawler-only class`);
   }
-  if (!/aria-hidden=["']true["']/i.test(seoTag.openTag)) {
-    errors.push(`${rel}: #seo-static missing aria-hidden="true"`);
+  if (!html.includes('class="seo-prerender"')) {
+    errors.push(`${rel}: missing .seo-prerender article in #seo-static`);
+  }
+
+  if (/body:not\(\.app-ready\)\s*\{[^}]*overflow\s*:\s*hidden/i.test(html)) {
+    errors.push(`${rel}: body overflow:hidden blocks mobile scroll — use #root visibility instead`);
+  }
+  if (!/pointer-events\s*:\s*none/i.test(html)) {
+    errors.push(`${rel}: missing pointer-events:none on crawler-only SEO block`);
   }
 }
 

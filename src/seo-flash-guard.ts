@@ -1,3 +1,2 @@
-/** Runs before React/CSS so users never see prerendered SEO copy. */
+/** Remove prerendered SEO block before React paints; never lock body scroll. */
 document.getElementById('seo-static')?.remove();
-document.body.classList.add('app-ready');
