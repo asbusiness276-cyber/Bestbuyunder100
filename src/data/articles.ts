@@ -1,4 +1,5 @@
 import type { Product } from './products';
+import { goldRingProducts } from './goldRingProducts';
 import { queenBoxSpringProducts } from './queenBoxSpringProducts';
 import { portableAcProducts } from './portableAcProducts';
 import { simRacingCockpitProducts } from './simRacingCockpitProducts';
@@ -1315,6 +1316,147 @@ export const articles: Article[] = [
       { label: 'Best folding bikes under $300', href: '#' },
       { label: 'How to charge an ebike battery safely', href: '#' },
       { label: 'Class 1 vs Class 2 vs Class 3 ebikes explained', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
+    slug: '14k-gold-rings-under-100-for-her',
+    navLabel: 'Gold rings',
+    keyword: '14k gold rings under $100 for her',
+    metaTitle: 'Best 14K Gold Rings Under $100 for Her (2026 Guide)',
+    metaDescription:
+      'We compared 15 affordable 14K gold rings under $100 for her - gold filled bands, gold plated stackable sets, CZ wedding bands, promise rings, and dainty gift picks.',
+    category: 'Jewelry & Fashion',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Jewelry & Fashion', href: '/14k-gold-rings-under-100-for-her/' },
+      { label: '14K Gold Rings Under $100 for Her', href: '/14k-gold-rings-under-100-for-her/' },
+    ],
+    heroImage: 'https://m.media-amazon.com/images/I/611HnMigpSL._AC_SY500_.jpg',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best 14K Gold Rings Under $100',
+    heroTitleLine2: 'For Her',
+    heroSubtitle:
+      'We compared 15 affordable 14K gold rings for her under $100 - gold filled bands, gold plated stackable sets, CZ eternity bands, promise rings, and trendy statement picks ranked by finish, style, rating, and gift value.',
+    heroTrustNote:
+      'Important: true solid 14K gold rings usually cost more than $100. Most rings in this budget are 14K gold filled or 14K gold plated over alloy or sterling silver. We call that out clearly so you know what you are buying. We earn a small commission if you buy through our links - at no extra cost to you.',
+    introHeading: 'Best 14K gold rings under $100 for her (2026)',
+    introParagraphs: [
+      'Finding 14K gold rings under $100 for her is possible, but the details matter. In this price range, the best values are usually gold filled bands, gold plated sterling silver rings, and stackable fashion sets - not solid 14K gold.',
+      'Our top pick for everyday wear is the NOKMIT 3mm 14K gold filled band because it has a 4.4-star rating, a wide size range, and a gold-filled finish at only $14. If you want a giftable ring stack, LOLIAS and FAXHION offer multiple gold plated styles for less than a single jewelry-store band.',
+      'Use this guide to choose the right style for her: simple stacking bands for everyday wear, CZ eternity bands for sparkle, thicker cigar bands for a bold thumb ring, or promise-ring designs when you want a more romantic gift.',
+    ],
+    filters: [
+      { id: 'all', label: 'All rings', icon: 'Home' },
+      { id: 'Gold Filled', label: 'Gold filled', icon: 'ShieldCheck' },
+      { id: 'Stackable Set', label: 'Stackable sets', icon: 'Layers' },
+      { id: 'Wedding Band', label: 'Wedding bands', icon: 'Boxes' },
+      { id: 'Promise Ring', label: 'Promise rings', icon: 'Baby' },
+      { id: 'Statement Ring', label: 'Statement', icon: 'Maximize2' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Style', source: 'spec', specLabel: 'Style' },
+      { label: 'Finish', source: 'spec', specLabel: 'Finish' },
+      { label: 'Sizes', source: 'spec', specLabel: 'Sizes' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for affordable 14K gold rings for her under $100',
+    products: goldRingProducts,
+    buyingGuideHeading: 'How to Choose 14K Gold Rings Under $100 for Her',
+    buyingGuide: [
+      {
+        title: 'Solid 14K Gold vs Gold Filled vs Gold Plated',
+        body:
+          'Solid 14K gold is gold all the way through and usually costs more than $100. Gold filled has a thicker layer of real gold bonded to a base metal, while gold plated has a thinner surface layer. Under $100, gold filled is usually the best durability value.',
+      },
+      {
+        title: 'Pick the Right Style',
+        body:
+          'Thin 1mm-3mm bands are best for stacking. A 5mm plain band works better as a thumb ring or standalone cigar band. CZ eternity bands and criss-cross rings add sparkle for date nights, weddings, or promise-ring gifts.',
+      },
+      {
+        title: 'Check Size Range Before Buying',
+        body:
+          'Many budget ring sets include mixed sizes, while single bands often run from size 4 to 11. If this is a gift, borrow one of her existing rings or choose an adjustable/open design when possible.',
+      },
+      {
+        title: 'Sensitive Skin',
+        body:
+          'Look for sterling silver bases, nickel-safe claims, or hypoallergenic language if she has sensitive skin. Avoid wearing plated rings in pools, showers, or heavy lotion to extend the finish.',
+      },
+      {
+        title: 'Gift vs Everyday Wear',
+        body:
+          'For everyday wear, choose a simple gold filled band. For gifting, a stackable set gives her more styling options. For romantic gifts under $100, a CZ promise ring or eternity band looks more intentional.',
+      },
+      {
+        title: 'Care Tips for Budget Gold Rings',
+        body:
+          'Remove rings before showering, swimming, cleaning, or applying perfume. Store them separately in a pouch so the plating does not rub against other jewelry.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you buy real 14K gold rings under $100 for her?',
+        a: 'Sometimes, but solid 14K gold is rare under $100 unless the ring is very thin or on sale. Most affordable listings are 14K gold filled or 14K gold plated, which can still look great when cared for properly.',
+      },
+      {
+        q: 'Is gold filled better than gold plated?',
+        a: 'Yes for durability. Gold filled jewelry has a thicker bonded layer of gold than standard plating, so it usually resists fading longer. For daily wear under $100, gold filled is the safer choice.',
+      },
+      {
+        q: 'What is the best 14K gold ring under $100 for everyday wear?',
+        a: 'A simple gold filled band like the NOKMIT 3mm or 5mm ring is the best everyday choice because it is comfortable, low profile, and less likely to snag than CZ or open designs.',
+      },
+      {
+        q: 'Are gold plated rings good gifts for her?',
+        a: 'Yes, especially if you choose a style she will wear occasionally: stackable sets, CZ eternity bands, birthstone rings, or promise-ring designs. Be clear that plated rings need gentler care than solid gold.',
+      },
+      {
+        q: 'Will 14K gold plated rings tarnish?',
+        a: 'They can fade or discolor over time if exposed to water, sweat, perfume, or cleaning chemicals. Remove them before showering and store them dry to extend the finish.',
+      },
+      {
+        q: 'What size ring should I buy for her?',
+        a: 'If you do not know her size, borrow a ring she wears on the same finger and compare it to a size chart. For safer gifts, choose stackable sets with multiple sizes or open/adjustable styles.',
+      },
+      {
+        q: 'Can she wear these rings every day?',
+        a: 'Gold filled bands are better for daily use than basic gold plated fashion sets. CZ and plated statement rings are better for occasional wear if you want them to stay shiny longer.',
+      },
+      {
+        q: 'Are cubic zirconia rings real diamonds?',
+        a: 'No. Cubic zirconia is a diamond simulant. It gives sparkle at a low price, but it is not a diamond and should be described as CZ or simulated diamond.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'nokmit-3mm-gold-filled-band' },
+      { label: 'Best Value', productId: 'jstyle-gold-filled-stacking-set' },
+      { label: 'Best Stackable Set', productId: 'lolias-cz-stackable-set' },
+      { label: 'Best Wedding Band Look', productId: 'pavoi-square-cz-eternity' },
+      { label: 'Best Promise Ring', productId: 'effinny-radiant-promise-ring' },
+      { label: 'Best Gift Pick', productId: 'jewelrypalace-love-knot-ring' },
+    ],
+    budgetTips: [
+      'Choose gold filled over gold plated if she will wear the ring every day',
+      'Buy a multi-ring stack if you are unsure which style she likes most',
+      'Avoid water, perfume, and cleaning chemicals to protect plated finishes',
+      'For sensitive skin, prioritize sterling silver bases and nickel-safe claims',
+      'A simple band is safer for daily wear; CZ rings are better for sparkle and gifts',
+    ],
+    relatedArticles: [
+      { label: 'Best portable AC units under $100', href: '/portable-ac-units-under-100/' },
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best affordable jewelry gifts for her', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
