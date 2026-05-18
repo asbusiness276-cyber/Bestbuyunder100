@@ -166,7 +166,7 @@ export default function App() {
     if (route.type === 'home') {
       document.title = 'BestBuyUnder100 — Best Affordable Products & Buying Guides';
       const desc =
-        'Honest buying guides by Navjeet Kamboj for affordable products — twin mattresses under $100, queen box springs, sim racing cockpits, window ACs, and electric bikes.';
+        'Honest buying guides by Navjeet Kamboj for affordable products — twin mattresses, queen box springs, sim racing cockpits, portable AC units, window ACs, and electric bikes.';
       setMeta('name', 'description', desc);
       setMeta('property', 'og:title', document.title);
       setMeta('property', 'og:description', desc);

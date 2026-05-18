@@ -6,6 +6,7 @@ export const ARTICLE_SLUGS = [
   'queen-box-spring-under-100',
   'twin-mattress-under-100',
   'electric-bikes-under-200-for-adults',
+  'portable-ac-units-under-100',
   'cheap-window-air-conditioners-under-200',
 ];
 
@@ -29,5 +30,6 @@ export const GUIDE_LABELS = {
   'queen-box-spring-under-100': 'Best queen box spring under $100',
   'twin-mattress-under-100': 'Best twin mattress under $100',
   'electric-bikes-under-200-for-adults': 'Best electric bikes under $200 for adults',
+  'portable-ac-units-under-100': 'Best portable AC units under $100',
   'cheap-window-air-conditioners-under-200': 'Best cheap window air conditioners under $200',
 };

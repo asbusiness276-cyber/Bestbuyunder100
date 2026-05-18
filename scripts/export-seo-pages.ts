@@ -53,7 +53,7 @@ export type SeoPageExport = {
 };
 
 const homeDesc =
-  'Honest buying guides by Navjeet Kamboj for affordable products — twin mattresses under $100, queen box springs, sim racing cockpits, window ACs, and electric bikes.';
+  'Honest buying guides by Navjeet Kamboj for affordable products — twin mattresses, queen box springs, sim racing cockpits, portable AC units, window ACs, and electric bikes.';
 
 const homePage: SeoPageExport = {
   route: '/',

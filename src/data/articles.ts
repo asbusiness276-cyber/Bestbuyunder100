@@ -1,5 +1,6 @@
 import type { Product } from './products';
 import { queenBoxSpringProducts } from './queenBoxSpringProducts';
+import { portableAcProducts } from './portableAcProducts';
 import { simRacingCockpitProducts } from './simRacingCockpitProducts';
 import { twinMattressProducts } from './twinMattressProducts';
 
@@ -1323,6 +1324,146 @@ export const articles: Article[] = [
     defaultSort: 'rating',
   },
   {
+    slug: 'portable-ac-units-under-100',
+    navLabel: 'Portable ACs',
+    keyword: 'portable ac units under $100',
+    metaTitle: 'Best Portable AC Units Under $100 (2026 Buyer’s Guide)',
+    metaDescription:
+      'We compared 14 portable AC units under $100 — mini evaporative coolers, personal desk AC fans, rechargeable coolers, and large-tank models for bedrooms, offices, dorms, and camping.',
+    category: 'Home Appliances',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Home Appliances', href: '/portable-ac-units-under-100/' },
+      { label: 'Portable AC Units Under $100', href: '/portable-ac-units-under-100/' },
+    ],
+    heroImage: 'https://m.media-amazon.com/images/I/71yK7SF5O1L._AC_SL1500_.jpg',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best Portable AC Units',
+    heroTitleLine2: 'Under $100',
+    heroSubtitle:
+      'We compared 14 mini portable AC units and evaporative air coolers under $100 — large-tank bedside coolers, USB desk fans, rechargeable personal units, and remote-control picks ranked by tank size, controls, portability, and buyer value.',
+    heroTrustNote:
+      'Important: under $100, most "portable AC" listings are personal evaporative coolers, not compressor portable air conditioners. They work best close to you with water or ice, especially in dry rooms. We earn a small commission if you buy through our links — at no extra cost to you.',
+    introHeading: 'Best portable AC units under $100 (2026)',
+    introParagraphs: [
+      'If you are searching for portable AC units under $100, set expectations carefully: true compressor portable air conditioners almost always cost far more. In this budget, you are mainly choosing compact evaporative coolers and personal AC fans for a desk, bedside table, dorm, RV, or camping setup.',
+      'Our top pick for most buyers is the Aiorber 2000ML oscillating cooler because it has the largest tank in this roundup, 4 speeds, a 1-8 hour timer, and 120 degree oscillation. If you want a cheaper remote-control option, the Serantzon 1200ML model is a balanced value at $69.',
+      'These picks will not cool an entire apartment like a window AC. They can make a personal zone feel cooler when you sit nearby, especially when you add cold water or ice and keep airflow pointed at you.',
+    ],
+    filters: [
+      { id: 'all', label: 'All units', icon: 'Home' },
+      { id: 'Large Tank', label: 'Large tank', icon: 'Droplets' },
+      { id: 'Remote Control', label: 'Remote control', icon: 'Gauge' },
+      { id: 'Rechargeable', label: 'Rechargeable', icon: 'Battery' },
+      { id: 'Budget Pick', label: 'Budget picks', icon: 'Zap' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Tank', source: 'spec', specLabel: 'Tank' },
+      { label: 'Speeds', source: 'spec', specLabel: 'Speeds' },
+      { label: 'Timer', source: 'spec', specLabel: 'Timer' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for portable AC units and mini evaporative coolers under $100',
+    products: portableAcProducts,
+    buyingGuideHeading: 'How to Choose a Portable AC Unit Under $100',
+    buyingGuide: [
+      {
+        title: 'Know What "Portable AC" Means Under $100',
+        body:
+          'Most sub-$100 units are evaporative coolers: a fan blows air across water or ice. They can cool the air you feel at close range, but they do not exhaust hot air or drop whole-room temperature like a compressor AC.',
+      },
+      {
+        title: 'Tank Size Matters',
+        body:
+          'A 1500ML-2000ML tank needs fewer refills and is better for bedside use. Smaller 600ML-900ML coolers are cheaper and easier to carry, but they need more frequent water top-ups.',
+      },
+      {
+        title: 'Remote Control and Timer',
+        body:
+          'A remote is worth it if the unit sits on a nightstand or across the room. Timers help prevent the cooler from running dry overnight and reduce wasted power.',
+      },
+      {
+        title: 'Humidity and Climate',
+        body:
+          'Evaporative coolers work best in dry climates. In humid rooms, they may feel like a fan with mist rather than an air conditioner. For humid summers, a window AC under $200 is usually the stronger buy.',
+      },
+      {
+        title: 'Power Source',
+        body:
+          'USB models are convenient for desks and power banks, but they are less powerful. Wall-powered models usually move more air. Rechargeable units are best for short sessions, camping, or outages.',
+      },
+      {
+        title: 'Use Water and Ice Correctly',
+        body:
+          'Cold water and ice packs improve the cooling feel. Empty the tank regularly, clean the filter, and do not let standing water sit for days, especially in warm rooms.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you get a real portable AC unit under $100?',
+        a: 'Usually no. True compressor portable AC units normally cost well over $100 because they need refrigerant, a compressor, and an exhaust hose. Under $100, most products are personal evaporative coolers or mini cooling fans.',
+      },
+      {
+        q: 'Do mini portable AC units actually cool a room?',
+        a: 'They cool a personal zone, not a full room. Put the unit within a few feet of your face or upper body, add cold water or ice, and use it in a dry room for best results.',
+      },
+      {
+        q: 'What is the best portable AC under $100 for a bedroom?',
+        a: 'Pick a larger tank model with a timer and quiet fan settings. The Aiorber 2000ML and Serantzon 1200ML models are better bedroom choices than tiny 600ML desk coolers.',
+      },
+      {
+        q: 'Is a portable evaporative cooler better than a fan?',
+        a: 'It can feel cooler than a fan when the tank has cold water or ice, but it also adds humidity. In already humid rooms, a regular fan or window AC may be more comfortable.',
+      },
+      {
+        q: 'Are USB portable AC units worth buying?',
+        a: 'USB units are worth it for desks, dorms, camping, or power-bank use. They are not the best choice if you expect strong airflow across a large bedroom.',
+      },
+      {
+        q: 'How long does the water tank last?',
+        a: 'Small 600ML tanks may need refilling after a few hours. Larger 1500ML-2000ML models can last longer depending on mist level, fan speed, and room temperature.',
+      },
+      {
+        q: 'Should I buy a window AC instead?',
+        a: 'If your goal is to cool a whole bedroom, yes. A small window AC under $200 will outperform any sub-$100 mini evaporative cooler. Choose this guide only for personal spot cooling.',
+      },
+      {
+        q: 'Can I use these portable coolers while camping?',
+        a: 'Yes, especially USB or rechargeable units. They are useful in tents, RVs, and picnic setups, but they need water and work best when airflow is aimed directly at you.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'aiorber-2000ml-oscillating' },
+      { label: 'Best Value', productId: 'serantzon-1200ml-remote' },
+      { label: 'Cheapest Pick', productId: 'heaboom-rechargeable' },
+      { label: 'Top Rated', productId: 'anyrap-800ml-oscillating' },
+      { label: 'Best Large Tank', productId: 'poweel-1600ml-dual-spray' },
+      { label: 'Most Adjustable', productId: 'lxbenpink-1500ml-5-speed' },
+    ],
+    budgetTips: [
+      'Do not expect whole-room cooling from a sub-$100 evaporative unit',
+      'Choose 1500ML or larger if you want fewer refills overnight',
+      'Use cold water or ice packs for the strongest cooling feel',
+      'Avoid evaporative coolers in very humid rooms unless you only need fan airflow',
+      'Clean the tank and filter often to prevent odor and mineral buildup',
+    ],
+    relatedArticles: [
+      { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
+      { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
+      { label: 'Window AC vs portable AC: which is better?', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
     slug: 'cheap-window-air-conditioners-under-200',
     navLabel: 'Window ACs',
     keyword: 'cheap window air conditioners under $200',
@@ -1451,7 +1592,7 @@ export const articles: Article[] = [
       { label: 'Best twin mattress under $100', href: '/twin-mattress-under-100/' },
       { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
       { label: 'Best electric bikes under $200 for adults', href: '/electric-bikes-under-200-for-adults/' },
-      { label: 'Best portable air conditioners under $200', href: '#' },
+      { label: 'Best portable AC units under $100', href: '/portable-ac-units-under-100/' },
       { label: 'Cheap electric fans under $50', href: '#' },
       { label: 'Window AC vs portable AC: which is better?', href: '#' },
     ],
