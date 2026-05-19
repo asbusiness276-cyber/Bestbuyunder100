@@ -9,6 +9,9 @@ import { fileURLToPath } from 'url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const seoPath = join(root, 'scripts', '.seo-pages.json');
+const SITE_NAME = 'BestBuyUnder100';
+const ARTICLE_DATE_PUBLISHED = '2026-05-01';
+const ARTICLE_DATE_MODIFIED = '2026-05-15';
 
 function escapeHtml(value) {
   return String(value)
@@ -28,6 +31,13 @@ function upsertMeta(html, attr, key, content) {
 function upsertLink(html, rel, href) {
   const re = new RegExp(`<link rel="${rel}" href="[^"]*"\\s*/?>`, 'i');
   const tag = `<link rel="${rel}" href="${escapeHtml(href)}" />`;
+  if (re.test(html)) return html.replace(re, tag);
+  return html.replace('</head>', `    ${tag}\n  </head>`);
+}
+
+function upsertAlternate(html, hreflang, href) {
+  const re = new RegExp(`<link rel="alternate" hreflang="${hreflang}" href="[^"]*"\\s*/?>`, 'i');
+  const tag = `<link rel="alternate" hreflang="${hreflang}" href="${escapeHtml(href)}" />`;
   if (re.test(html)) return html.replace(re, tag);
   return html.replace('</head>', `    ${tag}\n  </head>`);
 }
@@ -75,15 +85,26 @@ function buildHtml(baseHtml, page) {
   let html = baseHtml;
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
+  html = upsertMeta(html, 'name', 'robots', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+  html = upsertMeta(html, 'name', 'theme-color', '#059669');
   html = upsertMeta(html, 'name', 'description', page.description);
   html = upsertMeta(html, 'property', 'og:title', page.title);
   html = upsertMeta(html, 'property', 'og:description', page.description);
   html = upsertMeta(html, 'property', 'og:image', page.ogImage);
+  html = upsertMeta(html, 'property', 'og:site_name', SITE_NAME);
   html = upsertMeta(html, 'property', 'og:url', page.canonical);
   html = upsertMeta(html, 'property', 'og:type', page.ogType);
+  if (page.type === 'article') {
+    html = upsertMeta(html, 'property', 'article:published_time', ARTICLE_DATE_PUBLISHED);
+    html = upsertMeta(html, 'property', 'article:modified_time', ARTICLE_DATE_MODIFIED);
+  }
+  html = upsertMeta(html, 'name', 'twitter:card', 'summary_large_image');
   html = upsertMeta(html, 'name', 'twitter:title', page.title);
   html = upsertMeta(html, 'name', 'twitter:description', page.description);
+  html = upsertMeta(html, 'name', 'twitter:image', page.ogImage);
   html = upsertLink(html, 'canonical', page.canonical);
+  html = upsertAlternate(html, 'en', page.canonical);
+  html = upsertAlternate(html, 'x-default', page.canonical);
 
   if (page.jsonLd?.length) {
     const scripts = page.jsonLd

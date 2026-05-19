@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-seo-files.mjs && tsx scripts/export-seo-pages.ts",
-    "build": "vite build && node scripts/prerender-static.mjs && node scripts/verify-prerender.mjs && node scripts/verify-schema.mjs",
+    "build": "vite build && node scripts/prerender-static.mjs && node scripts/verify-prerender.mjs && node scripts/verify-schema.mjs && node scripts/verify-meta.mjs",
     "build:no-prerender": "node scripts/generate-seo-files.mjs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

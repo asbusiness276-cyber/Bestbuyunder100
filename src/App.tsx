@@ -14,6 +14,7 @@ import { siteAuthor, sitePublisher } from './data/author';
 import { matchRoute, type AppRoute } from './site/routes';
 
 const SITE = 'https://bestbuyunder100.com';
+const SITE_NAME = 'BestBuyUnder100';
 const ARTICLE_DATE_PUBLISHED = '2026-05-01';
 const ARTICLE_DATE_MODIFIED = '2026-05-15';
 
@@ -29,6 +30,23 @@ function setMeta(attr: 'name' | 'property', key: string, value: string) {
     document.head.appendChild(el);
   }
   el.setAttribute('content', value);
+}
+
+function removeMeta(attr: 'name' | 'property', key: string) {
+  document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)?.remove();
+}
+
+function setAlternateHrefLang(hreflang: string, href: string) {
+  let el = document.head.querySelector<HTMLLinkElement>(
+    `link[rel="alternate"][hreflang="${hreflang}"]`
+  );
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
 }
 
 function injectJsonLd(objects: object[]) {
@@ -74,6 +92,10 @@ export default function App() {
       'robots',
       'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
     );
+    setMeta('name', 'theme-color', '#059669');
+    removeMeta('property', 'article:author');
+    removeMeta('property', 'article:published_time');
+    removeMeta('property', 'article:modified_time');
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
@@ -93,13 +115,19 @@ export default function App() {
       setMeta('property', 'og:title', article.metaTitle);
       setMeta('property', 'og:description', article.metaDescription);
       setMeta('property', 'og:image', article.heroImage);
+      setMeta('property', 'og:site_name', SITE_NAME);
       setMeta('property', 'og:url', pageUrl);
       setMeta('property', 'og:type', 'article');
       setMeta('property', 'article:author', siteAuthor.name);
+      setMeta('property', 'article:published_time', ARTICLE_DATE_PUBLISHED);
+      setMeta('property', 'article:modified_time', ARTICLE_DATE_MODIFIED);
       setMeta('name', 'twitter:card', 'summary_large_image');
       setMeta('name', 'twitter:title', article.metaTitle);
       setMeta('name', 'twitter:description', article.metaDescription);
+      setMeta('name', 'twitter:image', article.heroImage);
       canonical.setAttribute('href', pageUrl);
+      setAlternateHrefLang('en', pageUrl);
+      setAlternateHrefLang('x-default', pageUrl);
 
       const personSchema = {
         '@type': 'Person',
@@ -166,17 +194,21 @@ export default function App() {
     if (route.type === 'home') {
       document.title = 'BestBuyUnder100 — Best Affordable Products & Buying Guides';
       const desc =
-        'Honest buying guides by Navjeet Kamboj for affordable products — gold rings, twin mattresses, queen box springs, sim racing cockpits, portable AC units, window ACs, and electric bikes.';
+        'Honest buying guides by Navjeet Kamboj for affordable products — sideplate locks, gold rings, twin mattresses, queen box springs, sim racing cockpits, portable AC units, window ACs, and electric bikes.';
       setMeta('name', 'description', desc);
       setMeta('property', 'og:title', document.title);
       setMeta('property', 'og:description', desc);
       setMeta('property', 'og:image', 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
+      setMeta('property', 'og:site_name', SITE_NAME);
       setMeta('property', 'og:url', `${SITE}/`);
       setMeta('property', 'og:type', 'website');
       setMeta('name', 'twitter:card', 'summary_large_image');
       setMeta('name', 'twitter:title', document.title);
       setMeta('name', 'twitter:description', desc);
+      setMeta('name', 'twitter:image', 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
       canonical.setAttribute('href', `${SITE}/`);
+      setAlternateHrefLang('en', `${SITE}/`);
+      setAlternateHrefLang('x-default', `${SITE}/`);
 
       injectJsonLd([
         {
@@ -227,12 +259,17 @@ export default function App() {
     setMeta('name', 'description', m.description);
     setMeta('property', 'og:title', m.title);
     setMeta('property', 'og:description', m.description);
+    setMeta('property', 'og:image', 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
+    setMeta('property', 'og:site_name', SITE_NAME);
     setMeta('property', 'og:type', 'website');
     setMeta('property', 'og:url', `${SITE}/${route.slug}/`);
-    setMeta('name', 'twitter:card', 'summary');
+    setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', m.title);
     setMeta('name', 'twitter:description', m.description);
+    setMeta('name', 'twitter:image', 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
     canonical.setAttribute('href', `${SITE}/${route.slug}/`);
+    setAlternateHrefLang('en', `${SITE}/${route.slug}/`);
+    setAlternateHrefLang('x-default', `${SITE}/${route.slug}/`);
   }, [route]);
 
   const headerMode = route.type === 'article' ? 'transparent' : 'solid';

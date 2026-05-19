@@ -3,6 +3,7 @@ import { goldRingProducts } from './goldRingProducts';
 import { queenBoxSpringProducts } from './queenBoxSpringProducts';
 import { portableAcProducts } from './portableAcProducts';
 import { simRacingCockpitProducts } from './simRacingCockpitProducts';
+import { sideplateLockProducts } from './sideplateLockProducts';
 import { twinMattressProducts } from './twinMattressProducts';
 
 export interface FilterButton {
@@ -1316,6 +1317,147 @@ export const articles: Article[] = [
       { label: 'Best folding bikes under $300', href: '#' },
       { label: 'How to charge an ebike battery safely', href: '#' },
       { label: 'Class 1 vs Class 2 vs Class 3 ebikes explained', href: '#' },
+    ],
+    sortOptions: [
+      { value: 'rating', label: 'Sort: Top Rated' },
+      { value: 'price', label: 'Sort: Lowest Price' },
+      { value: 'priceDesc', label: 'Sort: Highest Price' },
+    ],
+    defaultSort: 'rating',
+  },
+  {
+    slug: 'sideplate-locks-under-100',
+    navLabel: 'Sideplate locks',
+    keyword: 'sideplate locks under $100',
+    metaTitle: 'Best Sideplate Locks Under $100 (2026 Buyer’s Guide)',
+    metaDescription:
+      'We compared 13 sideplate locks, keypad deadbolts, smart locks, and keyed-alike door lock sets under $100 for front doors, offices, gates, rentals, and multi-door security.',
+    category: 'Tools & Home Improvement',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Tools & Home Improvement', href: '/sideplate-locks-under-100/' },
+      { label: 'Sideplate Locks Under $100', href: '/sideplate-locks-under-100/' },
+    ],
+    heroImage: 'https://m.media-amazon.com/images/I/7196lcUk6yL._AC_SL1500_.jpg',
+    heroBadge: 'Updated May 2026',
+    heroTitleLine1: 'Best Sideplate Locks',
+    heroTitleLine2: 'Under $100',
+    heroSubtitle:
+      'We compared 13 budget sideplate locks and deadbolt sets under $100 - keypad locks, WiFi smart deadbolts, fingerprint locks, decorative handle sets, and keyed-alike multi-packs ranked by entry method, finish, install type, and value.',
+    heroTrustNote:
+      'We focus on lock type, keyed-alike convenience, smart access, battery requirements, finish, and whether the listing is a full handle set or deadbolt only. Always confirm door thickness, backset, and handedness before ordering. We earn a small commission if you buy through our links - at no extra cost to you.',
+    introHeading: 'Best sideplate locks under $100 (2026)',
+    introParagraphs: [
+      'Sideplate locks under $100 now range from basic keyed-alike deadbolt bundles to WiFi keypad smart locks with fingerprint entry. The right pick depends on whether you are securing one front door, matching several exterior doors, or upgrading a rental or office without hiring a locksmith.',
+      'Our top smart pick is the Veise VE027-K because it includes built-in WiFi, fingerprint entry, keypad access, app control, and a knob/deadbolt setup while staying under $100. If you want a known-brand keypad deadbolt without app setup, the Kwikset Powerbolt 250 is a safer simple choice.',
+      'For multiple doors, keyed-alike mechanical packs from Gobrico and Probrico are still the best value. One key can open every matching deadbolt, which is useful for gates, storage rooms, garages, offices, and rental turnovers.',
+    ],
+    filters: [
+      { id: 'all', label: 'All locks', icon: 'Home' },
+      { id: 'Smart Lock', label: 'Smart locks', icon: 'ShieldCheck' },
+      { id: 'Keypad', label: 'Keypad', icon: 'Gauge' },
+      { id: 'Fingerprint', label: 'Fingerprint', icon: 'Zap' },
+      { id: 'Keyed Alike', label: 'Keyed alike', icon: 'Boxes' },
+      { id: 'Decorative', label: 'Decorative', icon: 'Layers' },
+    ],
+    comparisonColumns: [
+      { label: 'Price', source: 'price' },
+      { label: 'Type', source: 'spec', specLabel: 'Type' },
+      { label: 'Entry', source: 'spec', specLabel: 'Entry' },
+      { label: 'Finish', source: 'spec', specLabel: 'Finish' },
+      { label: 'Rating', source: 'rating' },
+      { label: 'Best For', source: 'highlight' },
+    ],
+    comparisonSubtitle: 'Quick specs for sideplate locks, deadbolts, and handle sets under $100',
+    products: sideplateLockProducts,
+    buyingGuideHeading: 'How to Choose Sideplate Locks Under $100',
+    buyingGuide: [
+      {
+        title: 'Decide Between Smart, Keypad, and Mechanical',
+        body:
+          'Smart locks add app control, fingerprints, voice assistant support, and activity logs. Keypad deadbolts keep things simpler with codes and backup keys. Mechanical keyed-alike packs are best when you want one key for several doors.',
+      },
+      {
+        title: 'Check Door Fit Before Buying',
+        body:
+          'Most residential locks fit standard pre-drilled doors, but you still need to confirm door thickness, backset, bore hole size, and whether your door needs left- or right-hand hardware.',
+      },
+      {
+        title: 'Keyed Alike vs Different Keys',
+        body:
+          'Keyed-alike sets let one key open every lock in the pack. That is convenient for landlords, garages, gates, offices, and multiple exterior doors, but it also means one lost key affects every lock.',
+      },
+      {
+        title: 'Battery and Backup Access',
+        body:
+          'Smart and keypad locks need batteries. Look for low-battery warnings, physical backup keys, and external power options. Keep one backup key outside the locked area.',
+      },
+      {
+        title: 'Finish and Weather Exposure',
+        body:
+          'Matte black and satin nickel are common modern finishes. Brass and crystal sets are decorative but should still be checked for exterior suitability if they face rain, sun, or humidity.',
+      },
+      {
+        title: 'Security Grade and Install Quality',
+        body:
+          'BHMA/ANSI Grade 3 is common under $100. A correctly installed budget deadbolt beats a premium lock with loose screws, a misaligned strike plate, or a short strike-plate screw set.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you get a good sideplate lock under $100?',
+        a: 'Yes. Under $100 you can buy keypad deadbolts, smart locks, decorative handle sets, and keyed-alike multi-packs. You may not get premium Grade 1 commercial hardware, but residential front-door upgrades are realistic.',
+      },
+      {
+        q: 'Are smart locks under $100 safe?',
+        a: 'They can be safe when installed correctly and backed by a physical key. Check battery alerts, weather rating, app support, and whether the lock uses standard deadbolt hardware.',
+      },
+      {
+        q: 'What is the best lock type for rental or office doors?',
+        a: 'For many doors, keyed-alike deadbolt packs are the best value because one key opens every matching lock. For access control, choose a keypad or smart lock with temporary codes.',
+      },
+      {
+        q: 'Do I need WiFi in a door lock?',
+        a: 'Only if you want remote locking, app alerts, access logs, or voice assistant control. If you just need keyless entry at the door, a non-WiFi keypad deadbolt is simpler and uses less battery.',
+      },
+      {
+        q: 'What does single-cylinder deadbolt mean?',
+        a: 'A single-cylinder deadbolt uses a key on the outside and a thumb turn on the inside. It is the common residential choice for exterior doors.',
+      },
+      {
+        q: 'Can I install these locks myself?',
+        a: 'Most fit standard pre-drilled doors and can be installed with a Phillips screwdriver. Smart locks take longer because you also set up batteries, codes, WiFi, and app access.',
+      },
+      {
+        q: 'Should I choose matte black, satin nickel, or brass?',
+        a: 'Choose a finish that matches your hinges, handle, and exterior style. Matte black looks modern, satin nickel hides fingerprints well, and brass/crystal sets are more decorative.',
+      },
+      {
+        q: 'Are keyed-alike locks a security risk?',
+        a: 'They are convenient, but one lost key opens every lock in the set. Use keyed-alike packs where convenience matters, and rekey or replace the full set if a key is lost.',
+      },
+    ],
+    quickPicks: [
+      { label: "Editor's Choice", productId: 'veise-ve027-wifi-fingerprint-set' },
+      { label: 'Top Rated', productId: 'philips-wifi-keypad-deadbolt' },
+      { label: 'Best Value', productId: 'kwikset-powerbolt-250' },
+      { label: 'Best Multi-Pack', productId: 'gobrico-6-pack-keyed-deadbolts' },
+      { label: 'Cheapest Pick', productId: 'leydebong-crystal-knob-deadbolt' },
+      { label: 'Best Keypad Set', productId: 'veise-keypad-deadbolt-knob-set' },
+    ],
+    budgetTips: [
+      'Measure door thickness and backset before ordering any lock set',
+      'Use longer strike-plate screws for better door-frame security',
+      'Choose keyed-alike packs only when one-key convenience is worth the lost-key risk',
+      'Keep backup keys for every keypad or smart lock',
+      'Replace batteries before winter if the lock is on an exterior door',
+    ],
+    relatedArticles: [
+      { label: 'Best portable AC units under $100', href: '/portable-ac-units-under-100/' },
+      { label: 'Best cheap window air conditioners under $200', href: '/cheap-window-air-conditioners-under-200/' },
+      { label: 'Best queen box spring under $100', href: '/queen-box-spring-under-100/' },
+      { label: 'Best sim racing cockpit under $100', href: '/sim-racing-cockpit-under-100/' },
+      { label: 'Best smart home gadgets under $100', href: '#' },
     ],
     sortOptions: [
       { value: 'rating', label: 'Sort: Top Rated' },
