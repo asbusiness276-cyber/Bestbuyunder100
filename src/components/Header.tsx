@@ -1,15 +1,31 @@
 import { useState, useEffect } from 'react';
-import { Search, Menu, X, Tag } from 'lucide-react';
-import { articles } from '../data/articles';
+import { ChevronDown, Search, Menu, X, Tag } from 'lucide-react';
+import { articles, type Article } from '../data/articles';
 
 interface HeaderProps {
   mode?: 'transparent' | 'solid';
 }
 
+const guideGroupDefinitions = [
+  {
+    label: 'Home & Living',
+    categories: ['Home Appliances', 'Mattresses & Bedroom', 'Tools & Home Improvement'],
+  },
+  {
+    label: 'Fashion',
+    categories: ['Jewelry & Fashion'],
+  },
+  {
+    label: 'Tech & Outdoors',
+    categories: ['Gaming & Tech', 'Electric Bikes'],
+  },
+];
+
 export default function Header({ mode = 'transparent' }: HeaderProps) {
   const [scrolled, setScrolled] = useState(mode === 'solid');
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [openGuideGroup, setOpenGuideGroup] = useState<string | null>(null);
 
   const solidHeader = scrolled || mode === 'solid';
 
@@ -34,17 +50,26 @@ export default function Header({ mode = 'transparent' }: HeaderProps) {
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!menuOpen && !openGuideGroup) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false);
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        setOpenGuideGroup(null);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [menuOpen]);
+  }, [menuOpen, openGuideGroup]);
 
   const closeMenu = () => setMenuOpen(false);
 
   const navArticles = [...articles].sort((a, b) => a.navLabel.localeCompare(b.navLabel));
+  const guideGroups = guideGroupDefinitions
+    .map((group) => ({
+      ...group,
+      articles: navArticles.filter((a: Article) => group.categories.includes(a.category)),
+    }))
+    .filter((group) => group.articles.length > 0);
 
   const headerBarClass = solidHeader
     ? 'bg-white shadow-md'
@@ -100,15 +125,58 @@ export default function Header({ mode = 'transparent' }: HeaderProps) {
             >
               Home
             </a>
-            {navArticles.map((a) => (
-              <a
-                key={a.slug}
-                href={`/${a.slug}/`}
-                className={`text-sm font-medium transition-colors hover:text-emerald-500 truncate max-w-[10rem] xl:max-w-none ${navLinkClass}`}
-              >
-                {a.navLabel}
-              </a>
-            ))}
+            {guideGroups.map((group) => {
+              const isOpen = openGuideGroup === group.label;
+              return (
+                <div
+                  key={group.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenGuideGroup(group.label)}
+                  onMouseLeave={() => setOpenGuideGroup(null)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenGuideGroup(isOpen ? null : group.label)}
+                    className={`inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-emerald-500 ${navLinkClass}`}
+                    aria-expanded={isOpen}
+                    aria-haspopup="true"
+                  >
+                    {group.label}
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="absolute left-1/2 top-full w-80 -translate-x-1/2 pt-3">
+                      <div className="rounded-2xl border border-gray-100 bg-white p-3 shadow-2xl">
+                        <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                          {group.label} guides
+                        </p>
+                        <div className="max-h-[70vh] overflow-y-auto">
+                          {group.articles.map((a) => (
+                            <a
+                              key={a.slug}
+                              href={`/${a.slug}/`}
+                              onClick={() => setOpenGuideGroup(null)}
+                              className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-emerald-50"
+                            >
+                              <span className="block text-sm font-semibold text-gray-900">{a.navLabel}</span>
+                              <span className="block text-xs text-gray-500">{a.category}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <a
+              href="/about/"
+              className={`text-sm font-medium transition-colors hover:text-emerald-500 shrink-0 ${navLinkClass}`}
+            >
+              About
+            </a>
             <a
               href="/contact/"
               className={`text-sm font-medium transition-colors hover:text-emerald-500 shrink-0 ${navLinkClass}`}
@@ -128,7 +196,10 @@ export default function Header({ mode = 'transparent' }: HeaderProps) {
               type="button"
               onClick={() => {
                 setSearchOpen(!searchOpen);
-                if (!searchOpen) setMenuOpen(false);
+                if (!searchOpen) {
+                  setMenuOpen(false);
+                  setOpenGuideGroup(null);
+                }
               }}
               className={`p-2 rounded-full transition-colors ${iconBtnClass}`}
               aria-label="Search"
@@ -139,7 +210,10 @@ export default function Header({ mode = 'transparent' }: HeaderProps) {
               type="button"
               onClick={() => {
                 setMenuOpen(!menuOpen);
-                if (!menuOpen) setSearchOpen(false);
+                if (!menuOpen) {
+                  setSearchOpen(false);
+                  setOpenGuideGroup(null);
+                }
               }}
               className={`lg:hidden p-2 rounded-full transition-colors ${iconBtnClass}`}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -176,16 +250,27 @@ export default function Header({ mode = 'transparent' }: HeaderProps) {
             <a href="/" className={mobileLinkClass} onClick={closeMenu}>
               Home
             </a>
-            {navArticles.map((a) => (
-              <a
-                key={a.slug}
-                href={`/${a.slug}/`}
-                className={mobileLinkClass}
-                onClick={closeMenu}
-              >
-                {a.navLabel}
-              </a>
+            {guideGroups.map((group) => (
+              <div key={group.label}>
+                <div className="pt-4 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  {group.label}
+                </div>
+                {group.articles.map((a) => (
+                  <a
+                    key={a.slug}
+                    href={`/${a.slug}/`}
+                    className="block py-3 px-1 text-base font-medium text-gray-800 hover:text-emerald-600 border-b border-gray-100"
+                    onClick={closeMenu}
+                  >
+                    <span className="block">{a.navLabel}</span>
+                    <span className="block text-xs font-normal text-gray-500">{a.category}</span>
+                  </a>
+                ))}
+              </div>
             ))}
+            <a href="/about/" className={mobileLinkClass} onClick={closeMenu}>
+              About
+            </a>
             <a href="/contact/" className={mobileLinkClass} onClick={closeMenu}>
               Contact
             </a>
